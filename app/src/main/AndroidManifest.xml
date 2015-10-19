@@ -1,24 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="whitewalker.autocrop2" >
+    package="com.aviary.android.sample">
+
+    <!-- billing permission -->
+    <!-- mandatory for PCN partners -->
+    <!-- <uses-permission android:name="com.android.vending.BILLING" /> -->
+
+    <!-- optional permissions -->
+    <!-- <uses-permission android:name="android.permission.VIBRATE" /> -->
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:icon="@drawable/app_icon"
+        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme"
-        android:name=".MainApplication"
-        >
+        android:name="com.aviary.android.sample.MyApplication">
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.aviary.android.sample.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="unspecified">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <!--
+            Required by the CreativeSDKImage
+            The "android:authorities" property MUST follow the following rule:
+                {your_app_package_name}.AviaryCdsProvider
+        -->
+        <provider
+            android:name="com.aviary.android.feather.sdk.internal.cds.AviaryCdsProvider"
+            android:authorities="com.aviary.android.sample.AviaryCdsProvider"
+            android:process=":aviarycds"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

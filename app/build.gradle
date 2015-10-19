@@ -5,7 +5,7 @@ android {
     buildToolsVersion '21.1.2'
 
     defaultConfig {
-        applicationId "whitewalker.autocrop2"
+        applicationId "com.aviary.android.sample"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

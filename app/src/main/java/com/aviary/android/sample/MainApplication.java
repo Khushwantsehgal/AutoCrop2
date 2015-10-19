@@ -1,4 +1,4 @@
-package whitewalker.autocrop2;
+package com.aviary.android.sample;
 
 import android.app.Application;
 import android.content.Context;
@@ -28,7 +28,7 @@ public class MainApplication extends Application implements IAdobeAuthClientCred
         AdobeCSDKFoundation.initializeCSDKFoundation(getApplicationContext());
     }
 
-    @Override
+/*    @Override
     public String getClientID() {
         return CREATIVE_SDK_SAMPLE_CLIENT_ID;
     }
@@ -41,5 +41,26 @@ public class MainApplication extends Application implements IAdobeAuthClientCred
     @Override
     public String getBillingKey() {
         return null;
+    } */
+
+   // @Override
+  //  public void onCreate() {
+ //       super.onCreate();
+ //   }
+
+    @Override
+    public String getBillingKey() {
+        return "";
+    }
+
+    @Override
+    public String getClientID() {
+        return CREATIVE_SDK_SAMPLE_CLIENT_ID;
+    }
+
+
+    @Override
+    public String getClientSecret() {
+        return CREATIVE_SDK_SAMPLE_CLIENT_SECRET;
     }
 }
