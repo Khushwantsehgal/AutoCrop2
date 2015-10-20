@@ -28,6 +28,7 @@ import java.io.File;
 import com.aviary.android.feather.sdk.AviaryIntent;
 import com.aviary.android.feather.sdk.AviaryVersion;
 import com.aviary.android.feather.sdk.internal.Constants;
+import com.aviary.android.feather.sdk.internal.filters.ToolLoaderFactory;
 import com.aviary.android.feather.sdk.internal.headless.utils.MegaPixels;
 import com.aviary.android.feather.sdk.internal.utils.DecodeUtils;
 import com.aviary.android.feather.sdk.internal.utils.ImageInfo;
@@ -362,13 +363,16 @@ public class MainActivity extends Activity {
             return;
         }
 
+        ToolLoaderFactory.Tools[] tools = {ToolLoaderFactory.Tools.CROP};
         // Create the intent needed to start feather
-        Intent newIntent = new AviaryIntent.Builder(this).setData(uri)
-                .withOutput(Uri.parse("file://" + mOutputFilePath))
-                .withOutputFormat(Bitmap.CompressFormat.JPEG)
-                .withOutputSize(MegaPixels.Mp5).withNoExitConfirmation(true)
-                .saveWithNoChanges(true).withPreviewSize(1024)
-                .build();
+//        Intent newIntent = new AviaryIntent.Builder(this).setData(uri)
+//                .withOutput(Uri.parse("file://" + mOutputFilePath))
+//                .withOutputFormat(Bitmap.CompressFormat.JPEG)
+//                .withOutputSize(MegaPixels.Mp5).withNoExitConfirmation(true)
+//                .saveWithNoChanges(true).withPreviewSize(1024)
+//                .build();
+
+        Intent newIntent = new AviaryIntent.Builder(this).setData(uri) .withOutput(Uri.parse("file://" + mOutputFilePath)) .withOutputFormat(Bitmap.CompressFormat.JPEG) .withOutputSize(MegaPixels.Mp5) .withNoExitConfirmation(true) .saveWithNoChanges(true) .withPreviewSize(1024) .withOutputQuality(90)  .build();
 
         // ..and start feather
         startActivityForResult(newIntent, ACTION_REQUEST_FEATHER);
