@@ -372,7 +372,17 @@ public class MainActivity extends Activity {
 //                .saveWithNoChanges(true).withPreviewSize(1024)
 //                .build();
 
-        Intent newIntent = new AviaryIntent.Builder(this).setData(uri) .withOutput(Uri.parse("file://" + mOutputFilePath)) .withOutputFormat(Bitmap.CompressFormat.JPEG) .withOutputSize(MegaPixels.Mp5) .withNoExitConfirmation(true) .saveWithNoChanges(true) .withPreviewSize(1024) .withOutputQuality(90)  .build();
+        Intent newIntent = new AviaryIntent.Builder(this).setData(uri)
+                .withOutput(Uri.parse("file://" + mOutputFilePath))
+                .withOutputFormat(Bitmap.CompressFormat.JPEG)
+                .withOutputSize(MegaPixels.Mp5)
+                .withNoExitConfirmation(true)
+                .saveWithNoChanges(true)
+                .withPreviewSize(1024)
+                .withOutputQuality(90)
+                .quickLaunchTool(tools[0].name(), new Bundle())
+                .withToolList(tools)
+                .build();
 
         // ..and start feather
         startActivityForResult(newIntent, ACTION_REQUEST_FEATHER);
